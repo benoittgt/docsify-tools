@@ -15,7 +15,10 @@ type Entry = {
 
 function niceName(name: string) {
   let splitName = name.split('-');
-  if (Number.isNaN(Number(splitName[0]))) return splitName.join(' ');
+  if (Number.isNaN(Number(splitName[0]))) {
+    let str = splitName.join(' ').replace(/_/g, ' ');
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   return splitName.slice(1).join(' ');
 }
 
